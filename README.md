@@ -1,7 +1,7 @@
 Navi.js - Content Switcher
 =======
 <hr/>
-Current Version: v1.0
+Current Version: <strong>v1.0</strong>
 
 
 Navi.js makes it easy to dynamically display content on your sites. Instead of cluttering up your site tree with extra files, you can easily write all of your html code for multiple pages in one file.
