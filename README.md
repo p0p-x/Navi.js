@@ -7,3 +7,4 @@ Navi leverages <a href="http://benalman.com/projects/jquery-hashchange-plugin/">
 
 Navi is also friendly with other plugins, and can be called on multiple objects or nested together.
 
+<h3><a href="http://navi.grantcr.com">Check out the project page</a></h3>
