@@ -7,4 +7,6 @@ Navi leverages <a href="http://benalman.com/projects/jquery-hashchange-plugin/">
 
 Navi is also friendly with other plugins, and can be called on multiple objects or nested together.
 
+Navi was created to be an easy way for anyone wanting to change content. This plugin can help with the development of numerous other plugins including: tabs, pagination, image sliders, and others. Navi has serveral options to tweak and allows for loading content based on the page hash. You can call Navi on multiple elements with ease so you can have multiple content switching sections.
+
 <h3><a href="http://navi.grantcr.com">Check out the project page</a></h3>
