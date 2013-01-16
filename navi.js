@@ -29,6 +29,9 @@
 					defaultPageHash:true,
 					useAnimation:true,
 					animationSpeed:100,
+					usePageTitle:true,
+					defaultPageTitle:"Navi.js",
+					
 					init:function() {
 						_.menu=$(">ul>li",_.me)
 						_.cont=$(">ul>li",_.content)
@@ -37,7 +40,8 @@
 						_.loadPages()
 						_.defaultPage?_.loadDefault():false
 						_.hideOther()
-						_.setActive()			
+						_.setActive()
+						_.usePageTitle?_.pageTitle():false
 					},
 					hideOther:function(){
 						_.cont.each(function(e){
@@ -67,7 +71,7 @@
 							}
 						})
 					},
-					setActive:function(){
+					setActive:function(c){
 						var ids = [],
 							links = [],
 							curHash = location.hash.slice(_.hashLen);
@@ -85,6 +89,7 @@
 								$(e).addClass("active").siblings().removeClass("active")
 							}
 						})
+						_.pageTitle()
 					},
 					debug:function(str){
 						console.log(str)
@@ -117,6 +122,16 @@
 								}
 							})
 						})
+					},
+					pageTitle:function() {
+						if (_.usePageTitle) {
+							_.menu.each(function(i,e){
+								if ($(e).hasClass("active")){
+									var title = $(e).attr("data-title")
+									$("title").text(_.defaultPageTitle+title)
+								}
+							})
+						}
 					}
 				}
 			d?_=d:t.data({navi: _})
@@ -126,7 +141,9 @@
 			_.me||_.init(_.me=t)
 			
 			$(window).hashchange(function(){
-				location.hash==_.hash?_setActive():_.useAnimation?_.animation(_.animationSpeed):_.setActive();
+				location.hash==_.hash?_.setActive():_.useAnimation?_.animation(_.animationSpeed):_.setActive();
+
+				
 			})
 		})
 		return this
