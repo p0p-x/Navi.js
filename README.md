@@ -1,7 +1,7 @@
 <h1>Navi.js - Content Switcher</h1>
+<hr/>
 <h3><a href="http://navi.grantcr.com">Check out the project page</a></h3>
 =======
-<hr/>
 Current Version: <strong>v1.1</strong>
 
 
