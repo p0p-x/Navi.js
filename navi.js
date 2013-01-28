@@ -9,7 +9,7 @@
 (function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);
 
 /*
- *	jQuery: Navi.js Content Switcher - v1.1 - 1/14/2013
+ *	jQuery: Navi.js Content Switcher - v1.2 - 1/28/2013
  *  http://navi.grantcr.com
  *	https://github.com/tgrant54/Navi.js
  *  Copyright (c) 2013 Tyler Grant
@@ -28,6 +28,7 @@
 					defaultPage:true,
 					defaultPageHash:true,
 					useAnimation:true,
+					animationType: "slideUp",
 					animationSpeed:100,
 					usePageTitle:true,
 					defaultPageTitle:"Navi.js",
@@ -71,7 +72,7 @@
 							}
 						})
 					},
-					setActive:function(c){
+					setActive:function(c,speed){
 						var ids = [],
 							links = [],
 							curHash = location.hash.slice(_.hashLen);
@@ -79,7 +80,7 @@
 						_.cont.each(function(n,e){
 							ids[n] = $(e).attr("id")
 							if (curHash==ids[n]&&location.hash.slice(0,_.hashLen)==_.hash){
-								$(e).fadeIn().addClass("active").siblings()
+								$(e).fadeIn(speed).addClass("active").siblings()
 								.css("display","none").removeClass("active")
 							}
 						})
@@ -94,34 +95,41 @@
 					debug:function(str){
 						console.log(str)
 					},
-					animation:function(s,cb){
-						_.cont.each(function(n,e){
-							var h = $(e).height()
-							$(e).attr('height',h)
-							_.content.stop().animate({
-								height: "0"
-							},s,function() {
-								_.setActive()
-								_.cont.each(function(n,e){
+					animation:function(type,speed,callb){
+						if (type=="slideUp") {
+							_.cont.each(function(n,e){
+								var h = $(e).height()
+								$(e).attr("height",h)
+								_.content.stop().animate({
+									height: "0"
+								},speed,function() {
+									_.setActive()
+									_.cont.each(function(n,e2){
+										if ($(e2).hasClass("active")) {
+											_.content.stop().animate({
+												height: Number($(e2).attr("height")) + "px"
+											},speed,callb)
+										}
+									})
+								})
+							})
+							$(window).bind("resize",function(){
+								_.cont.each(function(i,e){
 									if ($(e).hasClass("active")){
+										_.activeHeight=$(e).height()
 										_.content.stop().animate({
-											height: Number($(e).attr("height"))+5+"px"
-										},s,cb)
+											height: Number(_.activeHeight)+"px"
+										})
 									}
 								})
 							})
-						})
+							
+						}
+						if (type=="fade") {
+							_.content.fadeOut(speed,function() { _.setActive() })
+							_.content.fadeIn(speed)
+						}
 						
-						$(window).bind("resize",function(){
-							_.cont.each(function(i,e){
-								if ($(e).hasClass("active")){
-									_.activeHeight=$(e).height()
-									_.content.stop().animate({
-										height: Number(_.activeHeight)+5+"px"
-									},s)
-								}
-							})
-						})
 					},
 					pageTitle:function() {
 						if (_.usePageTitle) {
@@ -141,10 +149,11 @@
 			_.me||_.init(_.me=t)
 			
 			$(window).hashchange(function(){
-				location.hash==_.hash?_.setActive():_.useAnimation?_.animation(_.animationSpeed):_.setActive();
-
+				location.hash==_.hash?_.setActive():_.useAnimation?_.animation(_.animationType,_.animationSpeed):false;
+				
 				
 			})
+			$(window).resize()
 		})
 		return this
 	}
