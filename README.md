@@ -44,7 +44,11 @@ Navi was created to be an easy way for anyone wanting to change content. This pl
   </li>
   <li>Will be updated as frequently as possible</li>
 </ul>
-
+<h2>Requirements</h2>
+  <ul>
+    <li>jQuery 1.5 or newer</li>
+    <li>Working on Chrome, Firefox, IE9/10, mobile</li>
+  </ul>
 <h2>Changelog</h2>
 <ul>
   <li>1/28/13 - Version 1.4 released | New Animation: slideUpLeft</li>
