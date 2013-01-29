@@ -108,7 +108,7 @@
 										if ($(e2).hasClass("active")) {
 											_.content.stop().animate({
 												height: Number($(e2).attr("height")) + "px"
-											},speed,callb)
+											},speed)
 										}
 									})
 								})
@@ -128,6 +128,53 @@
 						if (type=="fade") {
 							_.content.fadeOut(speed,function() { _.setActive() })
 							_.content.fadeIn(speed)
+						}
+						if (type=="slideLeft"){
+							var w = _.content.width()
+							_.content.attr('width',w)
+							_.content.stop().animate({
+								width: "0"
+							},speed,function() {
+								_.setActive()
+								_.content.stop().animate({
+									width: Number(w) + "px"
+								},speed,function() {
+									_.content.removeAttr("width")
+									_.content.css("width","")
+								})
+							})
+						}
+						if (type=="slideUpLeft") {
+							var w = _.content.width()
+							_.content.attr('width',w)
+							_.cont.each(function(i,e) {
+								var cheight = $(e).height()
+								$(e).attr("height",cheight)
+								
+								if ($(e).hasClass('active')){
+									$(e).stop().animate({
+										height: "0"
+									},function() {
+										_.content.stop().animate({
+											width: "0"
+										},function() {
+											_.setActive()
+											_.content.stop().animate({
+												width: w + "px"
+											},speed,function() {
+												$(e).stop().animate({
+													height: $(e).attr('height') + "px"
+												},speed, function() {
+													_.content.removeAttr("width")
+													_.content.css("width","")
+												})
+											})
+											
+										})
+									})
+								}
+							})
+							
 						}
 						
 					},
