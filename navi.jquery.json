@@ -1,0 +1,37 @@
+{
+	"name": "navi",
+	"title": "Navi.js",
+	"description": "jQuery plugin for easy content switching based on the page hash.",
+	"keywords": [
+		"navi",
+		"content-switching",
+		"content-change",
+		"navi.js"
+	],
+	"version": "1.4",
+	"author": {
+		"name": "Tyler Grant",
+		"url": "http://grantcr.com"
+	},
+	"maintainers": [
+		{
+			"name": "Tyler Grant",
+			"email": "tyler@grantcr.com",
+			"url": "http://grantcr.com"
+		}
+	],
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://raw.github.com/tgrant54/Navi.js/master/MIT-LICENSE.txt"
+		}
+	],
+	"bugs": "https://github.com/tgrant54/Navi.js/issues",
+	"homepage": "http://navi.grantcr.com",
+	"docs": "http://navi.grantcr.com/#!/docs",
+	"download": "http://navi.grantcr.com/download",
+	"dependencies": {
+		"jquery": ">=1.5"
+	}
+	
+}
