@@ -2,8 +2,8 @@
 <hr/>
 <h3><a href="http://navi.grantcr.com">Check out the project page</a></h3>
 =======
-<h5>Current Version: <strong>v1.2</strong></h5>
-<strong>New Animation: Fade</strong>
+<h5>Current Version: <strong>v1.4</strong></h5>
+<strong>New Animation(s): Fade, SlideLeft, SlideUpLeft</strong>
 
 
 Navi.js makes it easy to dynamically display content on your sites. Instead of cluttering up your site tree with extra files, you can easily write all of your html code for multiple pages in one file.
