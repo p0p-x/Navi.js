@@ -6,7 +6,8 @@
 		"navi",
 		"content-switching",
 		"content-change",
-		"navi.js"
+		"navi.js",
+		"navigation"
 	],
 	"version": "1.4",
 	"author": {
