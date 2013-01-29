@@ -45,7 +45,7 @@ Navi was created to be an easy way for anyone wanting to change content. This pl
   <li>Will be updated as frequently as possible</li>
 </ul>
 
-<h3>Changelog</h3>
+<h2>Changelog</h2>
 <ul>
   <li>1/28/13 - Version 1.4 released | New Animation: slideUpLeft</li>
   <li>1/28/13 - Version 1.3 released | New Animation: slideLeft</li>
