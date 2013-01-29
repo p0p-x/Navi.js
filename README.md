@@ -43,3 +43,12 @@ Navi was created to be an easy way for anyone wanting to change content. This pl
   </li>
   <li>Will be updated as frequently as possible</li>
 </ul>
+
+<h3>Changelog</h3>
+<ul>
+  <li>1/28/13 - Version 1.4 released | New Animation: slideUpLeft</li>
+  <li>1/28/13 - Version 1.3 released | New Animation: slideLeft</li>
+  <li>1/28/13 - Version 1.2 released | New Animation: Fade</li>
+  <li>1/16/13 - Version 1.1 released | New Function: Page Title Switcher</li>
+  <li>1/14/13 - Version 1.0 released | Default functionality</li>
+</ul>
