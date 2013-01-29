@@ -16,6 +16,7 @@ Navi was created to be an easy way for anyone wanting to change content. This pl
 
 <h2>Features</h2>
 <ul>
+  <li>Change page title to reflect content</li>
   <li>Back/forward button support</li>
   <li>Ability to nest</li>
   <li>Can be called on multiple objects</li>
