@@ -1,4 +1,4 @@
-<h1>Navi.js - Content Switcher</h1>
+<h1>Navi.js - jQuery Content Switcher</h1>
 <hr/>
 <h3><a href="http://navi.grantcr.com">Check out the project page</a></h3>
 =======
