@@ -1,7 +1,7 @@
 {
 	"name": "navi",
 	"title": "Navi.js",
-	"description": "jQuery plugin for easy content switching based on the page hash.",
+	"description": "jQuery plugin for easy content switching based on the page hash loaded with other features.",
 	"keywords": [
 		"navi",
 		"content-switching",
@@ -9,7 +9,7 @@
 		"navi.js",
 		"navigation"
 	],
-	"version": "1.5.2",
+	"version": "1.6.0",
 	"author": {
 		"name": "Tyler Grant",
 		"url": "http://grantcr.com"
