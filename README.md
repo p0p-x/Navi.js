@@ -2,8 +2,8 @@
 <hr/>
 <h3><a href="http://navi.grantcr.com">Check out the project page</a></h3>
 =======
-<h5>Current Version: <strong>v1.5.1</strong></h5>
-<strong>New Function: BreadCrumbs</strong>
+<h5>Current Version: <strong>v1.6.0</strong></h5>
+<strong>Minor Updated: Made animation slideUpLeft look better / fixed IE bug</strong>
 
 
 Navi.js makes it easy to dynamically display content on your sites. Instead of cluttering up your site tree with extra files, you can easily write all of your html code for multiple pages in one file.
@@ -53,6 +53,7 @@ Navi was created to be an easy way for anyone wanting to change content. This pl
   </ul>
 <h2>Changelog</h2>
 <ul>
+  <li>2/10/13 - Version 1.6 released | Minor Updated: Made animation slideUpLeft look better / fixed IE bug</li>
   <li>1/31/13 - Version 1.5 released | New Function: BreadCrumbs support</li>
   <li>1/28/13 - Version 1.4 released | New Animation: slideUpLeft</li>
   <li>1/28/13 - Version 1.3 released | New Animation: slideLeft</li>
