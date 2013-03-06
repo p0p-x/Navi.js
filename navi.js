@@ -8,11 +8,11 @@
  */
 (function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);
 /*
- *	jQuery: Navi.js Content Switcher - v1.6 - 2/10/2013
+ *	jQuery: Navi.js Content Switcher - v1.8 - 3/5/2013
  *  http://navi.grantcr.com
  *	https://github.com/tgrant54/Navi.js
  *  Copyright (c) 2013 Tyler Grant
- *	Licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.
+ *	Dual licensed under the MIT & Creative Commons Attribution-ShareAlike 3.0 Unported License.
  */
  ;(function($){
 	$.fn.navi = function(o){
@@ -33,6 +33,8 @@
 					usePageTitle:true,
 					useBreadCrumbs: true,
 					defaultPageTitle:"Navi.js",
+					useAjax: true,
+					ajaxExtension: ".html",
 					
 					init:function() {
 						_.menu=$(">ul>li",_.me)
@@ -41,9 +43,10 @@
 						_.hashLen=_.hash.length
 						_.loadHref()
 						_.loadPages()
-						_.defaultPage?_.loadDefault():false
+						_.defaultPage ? _.loadDefault():false
 						_.hideOther()
-						_.setActive()
+						_.useAjax ? _.setActiveAjax() : _.setActive()
+						_.ajaxExtLen = _.ajaxExtension.length
 						_.usePageTitle?_.pageTitle():false
 					},
 					hideOther:function(){
@@ -68,11 +71,44 @@
 									var a = $(el).attr("id")
 									if ($(">a",e).attr("href").slice(_.hashLen)==a){
 										$(el).siblings().css("display","none")
-										$(el).addClass("active").siblings().removeClass("active")
+										_.useAjax ? $(el).load(a+_.ajaxExtension, function() {
+											$(el).addClass("active").siblings().removeClass("active")
+										}): $(el).addClass("active").siblings().removeClass("active")
+										
+									}
+								})
+							}
+						})					
+					},
+					setActiveAjax:function(speed) {
+						var ids = [],
+							links = [],
+							curHash = location.hash.slice(_.hashLen);
+							
+						_.cont.each(function(n,e){
+							ids[n] = $(e).attr("id")
+							if (curHash==ids[n]&&location.hash.slice(0,_.hashLen)==_.hash) {
+								_.useAnimation?$(e).fadeIn(speed).load(ids[n]+(_.ajaxExtension), function() {
+									$(e).addClass("active").siblings().html("").css("display","none").removeClass("active")
+									if (typeof _gaq !== "undefined" && _gaq !== null) {
+										_gaq.push(['_trackPageview',  curHash])
+									}
+								}):$(e).fadeIn(0).load(ids[n]+_.ajaxExtension, function() {
+									$(e).addClass("active").siblings().html("").css("display","none").removeClass("active")
+									if (typeof _gaq !== "undefined" && _gaq !== null) {
+										_gaq.push(['_trackPageview',  curHash])
 									}
 								})
 							}
 						})
+						_.menu.each(function(n,e){
+							links[n]=$(">a",e).attr("href").slice(_.hashLen)
+							if (curHash==links[n]){
+								$(e).addClass("active").siblings().removeClass("active")
+							}
+						})
+						_.pageTitle()
+						_.breadCrumbs()
 					},
 					setActive:function(c,speed){
 						var ids = [],
@@ -105,13 +141,14 @@
 								_.content.stop().animate({
 									height: "0"
 								},speed,function() {
-									_.setActive()
+									_.useAjax? _.setActiveAjax():_.setActive()
 									_.cont.each(function(n,e2){
 										if ($(e2).hasClass("active")) {
 											_.content.stop().animate({
 												height: Number($(e2).attr("height")) + "px"
 											},speed, function() {
 												$(window).resize()
+												$(window).trigger('resize')
 											})
 										}
 									})
@@ -130,7 +167,7 @@
 							
 						}
 						if (type=="fade") {
-							_.content.fadeOut(speed,function() { _.setActive() })
+							_.content.fadeOut(speed,function() { _.useAjax? _.setActiveAjax():_.setActive() })
 							_.content.fadeIn(speed)
 						}
 						if (type=="slideLeft"){
@@ -139,7 +176,7 @@
 							_.content.stop().animate({
 								width: "0"
 							},speed,function() {
-								_.setActive()
+								_.useAjax? _.setActiveAjax():_.setActive()
 								_.content.stop().animate({
 									width: Number(w) + "px"
 								},speed,function() {
@@ -165,7 +202,7 @@
 										_.content.animate({
 											width: "0"
 										},function() {
-											_.setActive()
+											_.useAjax? _.setActiveAjax():_.setActive()
 											_.content.stop().animate({
 												width: w + "px"
 											},function() {
@@ -222,7 +259,7 @@
 			_.me||_.init(_.me=t)
 			
 			$(window).hashchange(function(){
-				location.hash==_.hash?_.setActive():_.useAnimation?_.animation(_.animationType,_.animationSpeed):_.setActive();
+				location.hash.slice(_.hashLen)==_.hash?_.useAjax? _.setActiveAjax():_.setActive():_.useAnimation?_.animation(_.animationType,_.animationSpeed):_.useAjax? _.setActiveAjax():_.setActive();
 				
 			})
 			
