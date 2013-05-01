@@ -5,7 +5,7 @@
 <h5>Current Version: <strong>v1.8.0</strong></h5>
 <strong>Major Update: Ajax Support, Google Analytics Support</strong>
 
-
+<h6>News: Navi 2.0 is still under production. Lots of features being added and making code more efficent. Please be patient :) </h6>
 Navi.js makes it easy to dynamically display content on your sites. Instead of cluttering up your site tree with extra files, you can easily write all of your html code for multiple pages in one file.
 
 Navi leverages <a href="http://benalman.com/projects/jquery-hashchange-plugin/">Ben Alman's hashchange plugin</a> to change content based on the current hash. This allows the use of the back button functionality, along with the ability to bookmark the pages.
