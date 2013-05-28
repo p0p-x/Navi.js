@@ -40,6 +40,13 @@ Navi was created to be an easy way for anyone wanting to change content. Navi ha
       <li>Slide Left</li>
       <li>Slide Up-Left</li>
       <li>Fade</li>
+      <li>Rotate Out-Down-Left</li>
+      <li>Bounce Out-Down</li>
+      <li>Bounce Out</li>
+      <li>Light Speed</li>
+      <li>Roll</li>
+      <li>Flip-X</li>
+      <li>Flip-Y</li>
       <li>More to come in 2.0</li>
     </ul>
   </li>
