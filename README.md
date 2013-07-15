@@ -2,18 +2,17 @@
 <hr/>
 <h3><a href="http://navi.grantcr.com">Check out the project page</a></h3>
 =======
-<h5>Current Version: <strong>v1.8.0</strong></h5>
-<strong>Major Update: Ajax Support, Google Analytics Support</strong>
+<h5>Current Version: <strong>v1.9.0</strong></h5>
+<strong>Major Update: Animations</strong>
 
 <h6>News: Navi 2.0 is still under production. Lots of features being added and making code more efficent. Please be patient :) </h6>
-Navi.js makes it easy to dynamically display content on your sites. Instead of cluttering up your site tree with extra files, you can easily write all of your html code for multiple pages in one file.
 
-Navi leverages <a href="http://benalman.com/projects/jquery-hashchange-plugin/">Ben Alman's hashchange plugin</a> to change content based on the current hash. This allows the use of the back button functionality, along with the ability to bookmark the pages.
+Navi makes it easy to dynamically display content on your sites. Instead of cluttering up your site tree with extra files, you can easily write all of your html code for multiple pages in one file. Navi leverages the hashchange event to change content based on the current hash, or falls back to Ben Alman's hashchange plugin to allow the use of the back button functionality.
 
-Navi is also friendly with other plugins, and can be called on multiple objects or nested together.
 
-Navi was created to be an easy way for anyone wanting to change content. This plugin can help with the development of numerous other plugins including: tabs, pagination, image sliders, and others. Navi has serveral options to tweak and allows for loading content based on the page hash. You can call Navi on multiple elements with ease so you can have multiple content switching sections.
+Navi was created to be an easy way for anyone wanting to change content. Navi has serveral options to tweak and allows for loading content based on the page hash.
 
+<b>Notice:</b> Navi.js will resume support for multiple sections / nested content in the next version.
 <h2>Features</h2>
 <ul>
   <li>Ajax Support</li>
@@ -21,8 +20,6 @@ Navi was created to be an easy way for anyone wanting to change content. This pl
   <li>Change page title to reflect content</li>
   <li>Breadcrumbs support</li>
   <li>Back/forward button support</li>
-  <li>Ability to nest</li>
-  <li>Can be called on multiple objects</li>
   <li>Can change page title</li>
   <li>Easy HTML/JS markup</li>
   <li>Use any hash</li>
@@ -43,6 +40,13 @@ Navi was created to be an easy way for anyone wanting to change content. This pl
       <li>Slide Left</li>
       <li>Slide Up-Left</li>
       <li>Fade</li>
+      <li>Rotate Out-Down-Left</li>
+      <li>Bounce Out-Down</li>
+      <li>Bounce Out</li>
+      <li>Light Speed</li>
+      <li>Roll</li>
+      <li>Flip-X</li>
+      <li>Flip-Y</li>
       <li>More to come in 2.0</li>
     </ul>
   </li>
@@ -55,6 +59,7 @@ Navi was created to be an easy way for anyone wanting to change content. This pl
   </ul>
 <h2>Changelog</h2>
 <ul>
+  <li>5/28/13 - Version 1.9 released | Major Update: New Animations, Removed Unnessesary code</li>
   <li>3/05/13 - Version 1.8 released | Major Update: Ajax Support, Google Analytics Support</li>
   <li>2/10/13 - Version 1.6 released | Minor Update: Made animation slideUpLeft look better / fixed IE bug</li>
   <li>1/31/13 - Version 1.5 released | New Function: BreadCrumbs support</li>
