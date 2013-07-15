@@ -2,8 +2,8 @@
 <hr/>
 <h3><a href="http://navi.grantcr.com">Check out the project page</a></h3>
 =======
-<h5>Current Version: <strong>v1.9.0</strong></h5>
-<strong>Major Update: Animations</strong>
+<h5>Current Version: <strong>v1.9.1</strong></h5>
+<strong>Minor Update: Custom selector for content </strong>
 
 <h6>News: Navi 2.0 is still under production. Lots of features being added and making code more efficent. Please be patient :) </h6>
 
@@ -59,6 +59,7 @@ Navi was created to be an easy way for anyone wanting to change content. Navi ha
   </ul>
 <h2>Changelog</h2>
 <ul>
+  <li>7/15/13 - Version 1.9.1 released | Minor Update: Allows custom selector for content</li>
   <li>5/28/13 - Version 1.9 released | Major Update: New Animations, Removed Unnessesary code</li>
   <li>3/05/13 - Version 1.8 released | Major Update: Ajax Support, Google Analytics Support</li>
   <li>2/10/13 - Version 1.6 released | Minor Update: Made animation slideUpLeft look better / fixed IE bug</li>
