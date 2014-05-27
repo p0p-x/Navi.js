@@ -5,8 +5,6 @@
 <h5>Current Version: <strong>v1.9.1</strong></h5>
 <strong>Minor Update: Custom selector for content </strong>
 
-<h6>News: Navi 2.0 is still under production. Lots of features being added and making code more efficent. Please be patient :) </h6>
-
 Navi makes it easy to dynamically display content on your sites. Instead of cluttering up your site tree with extra files, you can easily write all of your html code for multiple pages in one file. Navi leverages the hashchange event to change content based on the current hash, or falls back to Ben Alman's hashchange plugin to allow the use of the back button functionality.
 
 
